@@ -15,13 +15,13 @@ public class Divisors {
 		    	count+=2;
 		}
 		
-	    /*If the triangle number is a perfect square, 
-	    then we have counted the same divisor twice according to the formula above.
+	    	/*If the triangle number is a perfect square, 
+	    	then we have counted the same divisor twice according to the formula above.
 		So, we have to decrease the count by 1.*/
 		
-	    if (sqrt * sqrt == trianglenum) {
-	        count--;
-	    }
+	    	if (sqrt * sqrt == trianglenum) {
+	        	count--;
+	    	}
 		return count;
 	}
 	
