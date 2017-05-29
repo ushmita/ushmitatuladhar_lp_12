@@ -1,0 +1,29 @@
+package logpoint;
+
+import java.util.ArrayList;
+
+public class SameAdjacentChar {
+	static String s;
+	static char[] c;
+	int len = c.length;
+	static StringBuilder output = new StringBuilder();
+ 
+	public void checkchar(int i){
+		if(i<len) {
+			if(c[i] != c[i-1]){
+				output.append(c[i]);
+			}
+			checkchar(++i);
+		} else {
+			System.out.println(output);			
+		}		
+	}
+	
+	public static void main(String[] args) {
+		s = "cleaned";
+		c = s.toCharArray();
+		SameAdjacentChar word = new SameAdjacentChar();
+		output.append(c[0]);
+		word.checkchar(1);
+	}
+}

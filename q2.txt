@@ -1,0 +1,39 @@
+package logpoint;
+
+public class Divisors {
+	public int GetTotalDivisors(int trianglenum){
+		int count = 0, i, sqrt;
+		
+		/*If a number N has a prime factor larger than root(N) , then it surely has a prime factor smaller than root(N).
+		So it's sufficient to search for prime factors in the range [1,root(N)],
+ 		and then use them in order to compute the prime factors in the range [root(N),N].*/
+		
+		sqrt = (int) Math.sqrt(trianglenum);
+	    
+		for (i = 1; i <= sqrt; i++) {
+		    if (trianglenum % i == 0)
+		    	count+=2;
+		}
+		
+	    /*If the triangle number is a perfect square, 
+	    then we have counted the same divisor twice according to the formula above.
+		So, we have to decrease the count by 1.*/
+		
+	    if (sqrt * sqrt == trianglenum) {
+	        count--;
+	    }
+		return count;
+	}
+	
+	public static void main(String[] args) {
+		Divisors d = new Divisors();
+		int i = 1, trianglenum = 0, count;
+		do {
+			trianglenum+=i;
+			count = d.GetTotalDivisors(trianglenum);
+			i++;
+		}while(count<=500);
+		//System.out.println(count);
+		System.out.println(trianglenum);
+	}
+}
